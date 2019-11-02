@@ -11,6 +11,10 @@ Source for server:
 
 [https://github.com/JPery/MJPEGWriter]
 
+Python Flask Image server:
+
+https://github.com/miguelgrinberg/flask-video-streaming
+
 ## Requirements
 
 ### macOS
