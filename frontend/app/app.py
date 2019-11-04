@@ -1,5 +1,6 @@
 from flask import Flask, Response, request
 import requests, os
+from collections import defaultdict
 from flask import stream_with_context, send_from_directory
 
 app = Flask(__name__, static_folder="build")
@@ -19,7 +20,7 @@ def hello_world():
 
     return Response(stream_with_context(stream.iter_content(chunk_size=8096)), content_type = stream.headers['content-type'])
 
-settings = {'example1': 'value', 'example2': 'value2'}
+settings = defaultdict(lambda: "default")
 
 @app.route('/settings')
 def list_settings():
@@ -27,7 +28,7 @@ def list_settings():
 
 @app.route('/settings/<path:setting>')
 def get_setting(setting):
-    return Response(settings.get(setting))
+    return Response(settings[setting])
 
 @app.route('/settings/<path:setting>/<path:value>',  methods=['GET', 'PUT', 'POST'])
 def set_setting(setting, value):
