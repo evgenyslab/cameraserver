@@ -1,4 +1,5 @@
 #include "imageServer.h"
+#include "commServer.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,6 +13,9 @@ int main(int argc, char *argv[])
     }
 
     imageServer test(7777);
+    // TODO, create comm server
+    commServer cServe;
+    cServe.run();
     test.start();
     switch (opmode){
         case webcam:{

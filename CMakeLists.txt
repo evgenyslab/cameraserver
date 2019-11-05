@@ -7,5 +7,5 @@ find_package(OpenCV REQUIRED)
 include_directories(
         include
 )
-add_executable(server src/server.cpp src/imageServer.cpp)
+add_executable(server src/server.cpp src/imageServer.cpp src/commServer.cpp)
 target_link_libraries(server pthread ${OpenCV_LIBS})

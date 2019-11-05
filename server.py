@@ -14,6 +14,11 @@ def serve(u_path):
     else:
         return send_from_directory(app.static_folder, 'index.html')
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    data = request.form['input_name']
+    print(data)
+    return ('', 204)
 
 # settings = defaultdict(lambda: "default")
 #
