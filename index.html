@@ -1,0 +1,19 @@
+<html>
+<header><title>This is title</title></header>
+<body>
+<p>Hello world</p>
+<p><img src="http://localhost:7777"></img></p>
+</body>
+</html>
+
+<script>
+    const ws = new WebSocket('ws://localhost:7777');
+
+    ws.on('open', function open() {
+        ws.send('something');
+    });
+
+    ws.on('message', function incoming(data) {
+        console.log(data);
+    });
+</script>
